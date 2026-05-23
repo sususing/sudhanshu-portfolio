@@ -6,15 +6,12 @@ const roles = [
   'SQL Data Engineer',
   'DISCOM Platform Expert',
 ];
-
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 const typedEl = document.getElementById('typed-role');
-
 function typeRole() {
   const current = roles[roleIndex];
-
   if (!isDeleting) {
     typedEl.textContent = current.slice(0, charIndex + 1);
     charIndex++;
@@ -31,15 +28,12 @@ function typeRole() {
       roleIndex = (roleIndex + 1) % roles.length;
     }
   }
-
   setTimeout(typeRole, isDeleting ? 40 : 75);
 }
-
 typeRole();
 
 // ─── NAVBAR SCROLL EFFECT ───
 const navbar = document.getElementById('navbar');
-
 window.addEventListener('scroll', () => {
   if (window.scrollY > 60) {
     navbar.classList.add('scrolled');
@@ -51,7 +45,6 @@ window.addEventListener('scroll', () => {
 // ─── ACTIVE NAV LINK ON SCROLL ───
 const sections = document.querySelectorAll('section[id]');
 const navAnchors = document.querySelectorAll('.nav-links a:not(.nav-cta)');
-
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -64,13 +57,11 @@ const sectionObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.35 });
-
 sections.forEach(s => sectionObserver.observe(s));
 
 // ─── HAMBURGER MENU ───
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
-
 hamburger.addEventListener('click', () => {
   mobileMenu.classList.toggle('open');
 });
@@ -93,7 +84,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ─── SCROLL TO TOP BUTTON ───
 const scrollTopBtn = document.getElementById('scrollTop');
-
 window.addEventListener('scroll', () => {
   if (window.scrollY > 400) {
     scrollTopBtn.classList.add('visible');
@@ -101,7 +91,6 @@ window.addEventListener('scroll', () => {
     scrollTopBtn.classList.remove('visible');
   }
 });
-
 scrollTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
@@ -110,9 +99,7 @@ scrollTopBtn.addEventListener('click', () => {
 const fadeEls = document.querySelectorAll(
   '.timeline-card, .project-card, .skill-group, .edu-item, .cert-card, .stat-card, .about-content'
 );
-
 fadeEls.forEach(el => el.classList.add('fade-up'));
-
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -121,7 +108,6 @@ const fadeObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.12 });
-
 fadeEls.forEach(el => fadeObserver.observe(el));
 
 // ─── STAGGERED CHILDREN DELAY ───
@@ -130,8 +116,3 @@ document.querySelectorAll('.skills-grid, .cert-grid, .projects-grid').forEach(gr
     child.style.transitionDelay = `${i * 80}ms`;
   });
 });
-
-// ─── ACTIVE NAV LINK STYLE ───
-const style = document.createElement('style');
-style.textContent = `.nav-links a.active { color: var(--text) !important; }`;
-document.head.appendChild(style);
