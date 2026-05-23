@@ -120,6 +120,11 @@ ul { list-style: none; }
 
 .nav-links a:hover { color: var(--text); }
 
+/* FIX: active nav link now uses accent color for clear visibility */
+.nav-links a.active {
+  color: var(--accent) !important;
+}
+
 .nav-links a.nav-cta {
   background: var(--accent);
   color: #0d0d0d;
@@ -415,12 +420,13 @@ ul { list-style: none; }
   border-top: 1px solid var(--border);
 }
 
+/* FIX: increased padding-left so dot has room and isn't clipped */
 .timeline {
   display: flex;
   flex-direction: column;
   gap: 24px;
   position: relative;
-  padding-left: 32px;
+  padding-left: 40px;
 }
 
 .timeline::before {
@@ -431,9 +437,10 @@ ul { list-style: none; }
   background: var(--border);
 }
 
+/* FIX: adjusted left offset to match new padding */
 .timeline-dot {
   position: absolute;
-  left: -36px;
+  left: -44px;
   top: 24px;
   width: 9px; height: 9px;
   border-radius: 50%;
@@ -893,13 +900,23 @@ footer {
   .hero-bg-text { display: none; }
   .hero-inner { padding-top: 60px; padding-bottom: 60px; }
 
+  /* FIX: mobile stat cards stack with proper rounded corners */
   .hero-stats {
     flex-direction: column;
     width: 100%;
     border-radius: var(--radius);
   }
-  .stat-card { border-right: none; border-bottom: 1px solid var(--border); }
-  .stat-card:last-child { border-bottom: none; }
+  .stat-card {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-card:first-child {
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .stat-card:last-child {
+    border-bottom: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
 
   .about-grid { grid-template-columns: 1fr; gap: 24px; }
   .about-label-col { padding-top: 0; }
