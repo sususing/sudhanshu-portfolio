@@ -88,10 +88,10 @@ animateCanvas();
 
 /* ─── TYPED ROLE ANIMATION ─── */
 const roles = [
-  'Assistant Manager — IT Operations',
-  'Oracle C2M / CCB Specialist',
+  'Assistant Manager, IT Operations',
+  'Oracle C2M & CCB Specialist',
   'Smart Metering Engineer',
-  'SQL Data Engineer — 8M+ Records',
+  'SQL Data Engineer · 8M+ Records',
   'AMISP Platform Expert',
   'DISCOM System Integrator',
 ];
@@ -245,6 +245,7 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.style.transition = 'all 0.4s ease';
   });
 });
+
 
 
 
