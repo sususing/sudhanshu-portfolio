@@ -6,27 +6,27 @@
   --bg2: #0f0f1a;
   --bg3: #161628;
   --bg4: #1c1c32;
-  --accent: #ff6b35;
-  --accent2: #ff8c5a;
-  --accent3: #ffb347;
-  --electric: #00f5ff;
-  --electric2: #00c8d4;
-  --purple: #7c3aed;
-  --purple2: #9d5cf7;
+  --accent: #2563eb;
+  --accent2: #3b82f6;
+  --accent3: #93c5fd;
+  --electric: #7dd3fc;
+  --electric2: #38bdf8;
+  --purple: #1d4ed8;
+  --purple2: #60a5fa;
   --text: #f4f0ff;
   --text-muted: #9090b0;
   --text-dim: #505070;
   --border: rgba(255,255,255,0.06);
-  --border-accent: rgba(255,107,53,0.3);
-  --border-electric: rgba(0,245,255,0.2);
+  --border-accent: rgba(37,99,235,0.35);
+  --border-electric: rgba(125,211,252,0.25);
   --font-display: 'Syne', sans-serif;
   --font-serif: 'Instrument Serif', serif;
   --font-mono: 'IBM Plex Mono', monospace;
   --radius: 16px;
   --radius-sm: 8px;
   --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  --glow-orange: 0 0 40px rgba(255,107,53,0.25);
-  --glow-electric: 0 0 40px rgba(0,245,255,0.2);
+  --glow-blue: 0 0 40px rgba(37,99,235,0.35);
+  --glow-light: 0 0 40px rgba(147,197,253,0.2);
 }
 
 html { scroll-behavior: smooth; }
@@ -52,7 +52,7 @@ ul { list-style: none; }
 
 /* ─── CUSTOM CURSOR ─── */
 .cursor-dot {
-  width: 6px; height: 6px;
+  width: 8px; height: 8px;
   background: var(--accent);
   border-radius: 50%;
   position: fixed;
@@ -60,24 +60,26 @@ ul { list-style: none; }
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: transform 0.05s;
+  transition: transform 0.06s;
+  box-shadow: 0 0 6px var(--accent);
 }
 
 .cursor-ring {
-  width: 32px; height: 32px;
-  border: 1.5px solid rgba(255,107,53,0.5);
+  width: 28px; height: 28px;
+  border: 1.5px solid rgba(125,211,252,0.5);
   border-radius: 50%;
   position: fixed;
   top: 0; left: 0;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width 0.25s, height 0.25s, border-color 0.25s, transform 0.1s;
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
 }
 
 .cursor-ring.hover {
-  width: 48px; height: 48px;
-  border-color: var(--accent);
+  width: 42px; height: 42px;
+  border-color: var(--electric);
+  background: rgba(125,211,252,0.05);
 }
 
 /* ─── TYPOGRAPHY ─── */
@@ -136,7 +138,7 @@ ul { list-style: none; }
 
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 800;
   color: var(--text);
   letter-spacing: 0.04em;
@@ -173,7 +175,7 @@ ul { list-style: none; }
 .nav-links a.nav-cta:hover {
   background: var(--accent2);
   transform: translateY(-1px);
-  box-shadow: var(--glow-orange);
+  box-shadow: var(--glow-blue);
 }
 
 .hamburger {
@@ -248,7 +250,7 @@ ul { list-style: none; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 28px;
-  background: rgba(0,245,255,0.06);
+  background: rgba(125,211,252,0.07);
   border: 1px solid var(--border-electric);
   padding: 6px 14px;
   border-radius: 40px;
@@ -297,7 +299,7 @@ ul { list-style: none; }
   line-height: 0.95;
   margin-bottom: 24px;
   letter-spacing: -0.04em;
-  background: linear-gradient(135deg, #f4f0ff 0%, #ff6b35 50%, #ffb347 100%);
+  background: linear-gradient(135deg, #e0f2fe 0%, #2563eb 50%, #7dd3fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -414,7 +416,7 @@ ul { list-style: none; }
 .btn-primary:hover {
   background: var(--accent2);
   transform: translateY(-3px);
-  box-shadow: var(--glow-orange);
+  box-shadow: var(--glow-blue);
 }
 
 .btn-outline {
@@ -482,7 +484,7 @@ ul { list-style: none; }
   right: 12%; top: 28%;
   color: var(--accent);
   border-color: var(--border-accent);
-  background: rgba(255,107,53,0.08);
+  background: rgba(37,99,235,0.10);
   animation-delay: 0s;
 }
 
@@ -490,15 +492,15 @@ ul { list-style: none; }
   right: 8%; top: 50%;
   color: var(--electric);
   border-color: var(--border-electric);
-  background: rgba(0,245,255,0.06);
+  background: rgba(125,211,252,0.07);
   animation-delay: 2s;
 }
 
 .f3 {
   right: 16%; top: 70%;
   color: var(--purple2);
-  border-color: rgba(157,92,247,0.25);
-  background: rgba(124,58,237,0.07);
+  border-color: rgba(37,99,235,0.25);
+  background: rgba(29,78,216,0.08);
   animation-delay: 4s;
 }
 
@@ -544,10 +546,12 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 13px;
   font-weight: 800;
   color: white;
   letter-spacing: 0.05em;
+  text-align: center;
+  line-height: 1.3;
 }
 
 .about-quick {
@@ -669,7 +673,7 @@ ul { list-style: none; }
   font-size: 10px;
   font-weight: 600;
   color: var(--electric);
-  background: rgba(0,245,255,0.08);
+  background: rgba(125,211,252,0.08);
   border: 1px solid var(--border-electric);
   padding: 5px 12px;
   border-radius: 40px;
@@ -832,7 +836,7 @@ ul { list-style: none; }
 .project-card:hover {
   border-color: var(--border-accent);
   transform: translateY(-4px);
-  box-shadow: var(--glow-orange);
+  box-shadow: var(--glow-blue);
 }
 
 .project-card.featured {
@@ -843,7 +847,7 @@ ul { list-style: none; }
   position: absolute;
   top: -60px; left: -60px;
   width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(255,107,53,0.12), transparent 70%);
+  background: radial-gradient(circle, rgba(37,99,235,0.12), transparent 70%);
   pointer-events: none;
   transition: opacity var(--transition);
 }
@@ -1181,7 +1185,7 @@ ul { list-style: none; }
   position: absolute;
   top: -120px; left: -120px;
   width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(255,107,53,0.08), transparent 70%);
+  background: radial-gradient(circle, rgba(37,99,235,0.10), transparent 70%);
   pointer-events: none;
 }
 
@@ -1190,7 +1194,7 @@ ul { list-style: none; }
   position: absolute;
   bottom: -80px; right: -80px;
   width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(124,58,237,0.07), transparent 70%);
+  background: radial-gradient(circle, rgba(29,78,216,0.08), transparent 70%);
   pointer-events: none;
 }
 
@@ -1238,7 +1242,7 @@ ul { list-style: none; }
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: var(--glow-orange);
+  box-shadow: var(--glow-blue);
 }
 
 .contact-location {
@@ -1288,7 +1292,7 @@ footer {
 
 #scrollTop:hover {
   transform: translateY(-4px);
-  box-shadow: var(--glow-orange);
+  box-shadow: var(--glow-blue);
   background: var(--accent2);
 }
 
@@ -1334,4 +1338,5 @@ footer {
   .contact-links { flex-direction: column; }
   .contact-link { justify-content: center; }
 }
+
 
