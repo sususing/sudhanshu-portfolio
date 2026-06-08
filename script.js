@@ -1,26 +1,15 @@
-/* ─── CUSTOM CURSOR ─── */
+/* ─── SIMPLE CURSOR ─── */
 const cursorDot = document.getElementById('cursorDot');
 const cursorRing = document.getElementById('cursorRing');
-let mouseX = 0, mouseY = 0;
-let ringX = 0, ringY = 0;
 
 document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursorDot.style.left = mouseX + 'px';
-  cursorDot.style.top = mouseY + 'px';
+  cursorDot.style.left = e.clientX + 'px';
+  cursorDot.style.top = e.clientY + 'px';
+  cursorRing.style.left = e.clientX + 'px';
+  cursorRing.style.top = e.clientY + 'px';
 });
 
-function animateRing() {
-  ringX += (mouseX - ringX) * 0.12;
-  ringY += (mouseY - ringY) * 0.12;
-  cursorRing.style.left = ringX + 'px';
-  cursorRing.style.top = ringY + 'px';
-  requestAnimationFrame(animateRing);
-}
-animateRing();
-
-document.querySelectorAll('a, button, .badge, .skill-tags span, .project-card, .cert-card, .edu-card').forEach(el => {
+document.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
   el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
 });
@@ -50,7 +39,7 @@ class Particle {
     this.vy = (Math.random() - 0.5) * 0.5;
     this.radius = Math.random() * 2 + 0.5;
     this.alpha = Math.random() * 0.5 + 0.2;
-    this.color = Math.random() > 0.5 ? '255,107,53' : '0,245,255';
+    this.color = Math.random() > 0.5 ? '37,99,235' : '125,211,252';
   }
   update() {
     this.x += this.vx;
@@ -81,7 +70,7 @@ function drawConnections() {
         ctx.beginPath();
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(255,107,53,${alpha})`;
+        ctx.strokeStyle = `rgba(96,165,250,${alpha})`;
         ctx.lineWidth = 0.6;
         ctx.stroke();
       }
@@ -256,4 +245,5 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.style.transition = 'all 0.4s ease';
   });
 });
+
 
